@@ -1,0 +1,6321 @@
+definitions:
+  bo.BaseOrgInfoBo:
+    properties:
+      orgId:
+        type: integer
+      orgName:
+        type: string
+      orgOwnerId:
+        type: integer
+      outOrgId:
+        type: string
+      sourceChannel:
+        type: string
+    type: object
+  bo.ManageGroupInfoBo:
+    properties:
+      appIds:
+        description: 应用权限
+        type: string
+      appPackageIds:
+        description: 应用包权限
+        type: string
+      deptIds:
+        description: 部门权限
+        type: string
+      id:
+        type: integer
+      langCode:
+        type: string
+      name:
+        type: string
+      orgId:
+        type: integer
+      roleIds:
+        description: 角色权限
+        type: string
+      usageIds:
+        description: 功能权限
+        type: string
+      userIds:
+        description: 成员
+        type: string
+    type: object
+  bo.SimpleUserInfoBo:
+    properties:
+      avatar:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  inner_req.AddAppReq:
+    properties:
+      appId:
+        description: AppId
+        type: integer
+      orgId:
+        description: OrgId
+        type: integer
+      userId:
+        description: UserId
+        type: integer
+    type: object
+  inner_req.AddOrgOutCollaborator:
+    properties:
+      orgId:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  inner_req.AddPkgReq:
+    properties:
+      orgId:
+        description: OrgId
+        type: integer
+      pkgId:
+        description: PkgId
+        type: integer
+      userId:
+        description: UserId
+        type: integer
+    type: object
+  inner_req.AddUserToSysManageGroupReq:
+    properties:
+      userIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  inner_req.DeleteAppReq:
+    properties:
+      appId:
+        description: AppId
+        type: integer
+      orgId:
+        description: OrgId
+        type: integer
+      userId:
+        description: UserId
+        type: integer
+    type: object
+  inner_req.DeletePkgReq:
+    properties:
+      orgId:
+        description: OrgId
+        type: integer
+      pkgId:
+        description: PkgId
+        type: integer
+      userId:
+        description: UserId
+        type: integer
+    type: object
+  inner_req.DeptListByIdsInnerReq:
+    properties:
+      ids:
+        description: Ids ID列表
+        items:
+          type: integer
+        type: array
+      orgId:
+        description: OrgId 组织ID
+        type: integer
+    type: object
+  inner_req.GetDeptUserIdsReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+  inner_req.GetLeadersByDeptIdsReq:
+    properties:
+      deptIds:
+        description: 部门id
+        items:
+          type: integer
+        type: array
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+  inner_req.GetManagerReq:
+    properties:
+      orgId:
+        type: integer
+    type: object
+  inner_req.GetMemberSimpleInfoReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+      type:
+        description: 类型(1成员2部门3角色)
+        type: integer
+    type: object
+  inner_req.GetRoleUserIdsReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+  inner_req.GetUserCountByDeptIdsReq:
+    properties:
+      deptIds:
+        description: 部门id
+        items:
+          type: integer
+        type: array
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+  inner_req.GetUserDeptIdsBatchReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+      userIds:
+        description: 人员id
+        items:
+          type: integer
+        type: array
+    type: object
+  inner_req.GetUserDeptIdsReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+      userId:
+        description: 人员id
+        type: integer
+    type: object
+  inner_req.GetUserIdsByDeptIdsReq:
+    properties:
+      deptIds:
+        description: 部门id
+        items:
+          type: integer
+        type: array
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+  inner_req.RoleListByIdsInnerReq:
+    properties:
+      ids:
+        description: Ids ID列表
+        items:
+          type: integer
+        type: array
+      orgId:
+        description: OrgId 组织ID
+        type: integer
+    type: object
+  inner_req.SimpleReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+  inner_req.UserAuthorityInnerReq:
+    properties:
+      orgId:
+        description: OrgId 组织ID
+        type: integer
+      userId:
+        description: 用户id
+        type: integer
+    type: object
+  inner_req.UserListByIdsInnerReq:
+    properties:
+      ids:
+        description: Ids ID列表
+        items:
+          type: integer
+        type: array
+      orgId:
+        description: OrgId 组织ID
+        type: integer
+    type: object
+  inner_resp.DepartmentLeader:
+    properties:
+      departmentId:
+        type: integer
+      leaderId:
+        type: integer
+    type: object
+  inner_resp.DeptInfoInnerResp:
+    properties:
+      code:
+        type: string
+      id:
+        type: integer
+      isDelete:
+        description: IsDelete
+        type: integer
+      isHide:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      parentId:
+        type: integer
+      path:
+        type: string
+      sort:
+        type: integer
+      sourceChannel:
+        type: string
+      status:
+        type: integer
+    type: object
+  inner_resp.GetDeptUserIdsResp:
+    properties:
+      data:
+        additionalProperties:
+          items:
+            type: integer
+          type: array
+        type: object
+    type: object
+  inner_resp.GetLeadersByDeptIdsResp:
+    properties:
+      leaders:
+        items:
+          $ref: '#/definitions/inner_resp.DepartmentLeader'
+        type: array
+    type: object
+  inner_resp.GetManagerData:
+    properties:
+      appIds:
+        items:
+          type: integer
+        type: array
+      langCode:
+        type: string
+      memberId:
+        type: integer
+      memberType:
+        type: string
+    type: object
+  inner_resp.GetManagerResp:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/inner_resp.GetManagerData'
+        type: array
+    type: object
+  inner_resp.GetMemberSimpleInfoResp:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/inner_resp.SimpleInfo'
+        type: array
+    type: object
+  inner_resp.GetRoleUserIdsResp:
+    properties:
+      data:
+        additionalProperties:
+          items:
+            type: integer
+          type: array
+        type: object
+    type: object
+  inner_resp.GetUserCountByDeptIdsResp:
+    properties:
+      userCount:
+        additionalProperties:
+          type: integer
+        type: object
+    type: object
+  inner_resp.GetUserDeptIdsBatchResp:
+    properties:
+      data:
+        additionalProperties:
+          items:
+            type: integer
+          type: array
+        type: object
+    type: object
+  inner_resp.GetUserDeptIdsResp:
+    properties:
+      deptIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  inner_resp.GetUserIdsByDeptIdsResp:
+    properties:
+      userIds:
+        items:
+          type: integer
+        type: array
+    type: object
+  inner_resp.GetUsersCouldManageResp:
+    properties:
+      list:
+        description: 用户列表
+        items:
+          $ref: '#/definitions/bo.SimpleUserInfoBo'
+        type: array
+    type: object
+  inner_resp.ManagerGroupInitResp:
+    properties:
+      sysGroupId:
+        example: "0"
+        type: string
+    type: object
+  inner_resp.RepeatMemberInfo:
+    properties:
+      department:
+        items:
+          type: string
+        type: array
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  inner_resp.RepeatMemberResp:
+    properties:
+      department:
+        items:
+          $ref: '#/definitions/inner_resp.RepeatMemberInfo'
+        type: array
+      role:
+        items:
+          $ref: '#/definitions/inner_resp.RepeatMemberInfo'
+        type: array
+      user:
+        items:
+          $ref: '#/definitions/inner_resp.RepeatMemberInfo'
+        type: array
+    type: object
+  inner_resp.RoleInfoInnerResp:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      roleGroupId:
+        type: integer
+    type: object
+  inner_resp.SimpleInfo:
+    properties:
+      avatar:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      parentId:
+        description: 父部门id
+        type: integer
+      status:
+        type: integer
+    type: object
+  inner_resp.UserAuthorityInnerResp:
+    properties:
+      hasAppPackageOptAuth:
+        description: 应用包操作权限
+        type: boolean
+      hasDeptOptAuth:
+        description: 管理部门的权限
+        type: boolean
+      hasRoleOptAuth:
+        description: 角色操作权限
+        type: boolean
+      isOrgOwner:
+        description: 是否是组织拥有者
+        type: boolean
+      isOutCollaborator:
+        description: 是否是外部协作人
+        type: boolean
+      isSubAdmin:
+        description: 是否是子管理员
+        type: boolean
+      isSysAdmin:
+        description: 是否是系统管理员
+        type: boolean
+      manageAppPackages:
+        description: 管理的应用包列表
+        items:
+          type: integer
+        type: array
+      manageApps:
+        description: ManageApps 管理的应用列表
+        items:
+          type: integer
+        type: array
+      manageDepts:
+        description: 管理的部门列表
+        items:
+          type: integer
+        type: array
+      manageRoles:
+        description: 管理的角色列表
+        items:
+          type: integer
+        type: array
+      optAuth:
+        description: 所拥有操作项
+        items:
+          type: string
+        type: array
+      orgId:
+        description: 组织ID
+        type: integer
+      orgSourceChannel:
+        description: 组织渠道来源。可能用于后续的权限校验规则。
+        type: string
+      refDeptIds:
+        description: 所管理部门ID列表
+        items:
+          type: integer
+        type: array
+      refRoleIds:
+        description: 所管理角色ID列表
+        items:
+          type: integer
+        type: array
+      userId:
+        description: 用户id
+        type: integer
+    type: object
+  inner_resp.UserDeptBindData:
+    properties:
+      departmentId:
+        description: DepartmentId 部门ID
+        type: integer
+      departmentName:
+        description: DepartmentName 部门名称
+        type: string
+      isLeader:
+        description: IsLeader 是否是部门负责人 1是 2否
+        type: integer
+      outOrgDepartmentCode:
+        description: OutOrgDepartmentCode
+        type: string
+      outOrgDepartmentId:
+        description: OutOrgDepartmentId
+        type: string
+      outOrgDepartmentParentId:
+        description: OutOrgDepartmentParentId
+        type: string
+      positionId:
+        description: PositionId 注意此处是org内的职级ID
+        type: integer
+      positionLevel:
+        description: PositionLevel 职级等级
+        type: integer
+      positionName:
+        description: PositionName 职级名称
+        type: string
+    type: object
+  inner_resp.UserInfoInnerResp:
+    properties:
+      avatar:
+        description: Avatar 用户头像
+        type: string
+      createTime:
+        description: CreateTime 创建时间
+        type: string
+      creator:
+        description: Creator 组织成员 创建者
+        type: integer
+      deptList:
+        description: DeptList 部门列表
+        items:
+          $ref: '#/definitions/inner_resp.UserDeptBindData'
+        type: array
+      email:
+        description: Email 邮箱
+        type: string
+      id:
+        description: Id 用户ID
+        type: integer
+      isDelete:
+        description: IsDelete
+        type: integer
+      loginName:
+        description: LoginName
+        type: string
+      name:
+        description: Name 姓名
+        type: string
+      namePy:
+        description: NamePy 姓名拼音
+        type: string
+      phoneNumber:
+        description: PhoneNumber 手机
+        type: string
+      phoneRegion:
+        description: PhoneRegion 手机区号
+        type: string
+      roleList:
+        description: RoleList 角色列表
+        items:
+          $ref: '#/definitions/inner_resp.UserRoleBindData'
+        type: array
+      status:
+        description: Status 状态1启用2禁用3离职
+        type: integer
+      type:
+        description: Type 用户类型，1：内部，2：外部
+        type: integer
+      updateTime:
+        description: UpdateTime 创建时间
+        type: string
+      updator:
+        description: Updator 组织成员 最后修改者ID
+        type: integer
+    type: object
+  inner_resp.UserRoleBindData:
+    properties:
+      roleId:
+        type: integer
+      roleName:
+        type: string
+    type: object
+  open_req.CheckTokenReq:
+    properties:
+      token:
+        description: Token
+        type: string
+    type: object
+  open_req.CompareUser:
+    properties:
+      superiorId:
+        description: SuperiorId 上级ID
+        type: integer
+      userId:
+        description: UserId
+        type: integer
+    type: object
+  open_req.DeptQueryReq:
+    properties:
+      likeName:
+        type: string
+    type: object
+  open_req.IdReq:
+    properties:
+      id:
+        description: Id
+        type: integer
+    type: object
+  open_req.IdsReq:
+    properties:
+      ids:
+        description: Ids
+        items:
+          type: integer
+        type: array
+    type: object
+  open_req.MemberQueryReq:
+    properties:
+      email:
+        description: Email 邮箱 全模糊
+        type: string
+      loginName:
+        description: LoginName 用户名 全模糊
+        type: string
+      mobile:
+        description: Mobile 手机号 全模糊
+        type: string
+      nickname:
+        description: Nickname 昵称 全模糊
+        type: string
+      status:
+        description: Status 状态 有效值(1有效 2无效  3离职)
+        type: integer
+      userIds:
+        description: UserIds 用户ID列表 len == 0 则忽视
+        items:
+          type: integer
+        type: array
+    type: object
+  open_req.SameSubordinateUsers:
+    properties:
+      deptIds:
+        description: DeptIds
+        items:
+          type: integer
+        type: array
+      id:
+        description: Id
+        type: integer
+    type: object
+  open_resp.DeptInfoResp:
+    properties:
+      code:
+        description: Code
+        type: string
+      id:
+        description: Id
+        type: integer
+      isHide:
+        description: IsHide
+        type: integer
+      name:
+        description: Name
+        type: string
+      orgId:
+        description: OrgId
+        type: integer
+      outOrgDepartmentCode:
+        description: OutOrgDepartmentCode
+        type: string
+      outOrgDepartmentId:
+        description: OutOrgDepartmentId
+        type: string
+      outOrgDepartmentParentId:
+        description: OutOrgDepartmentParentId
+        type: string
+      parentId:
+        description: ParentId
+        type: integer
+      path:
+        description: Path
+        type: string
+      sort:
+        description: Sort
+        type: integer
+      status:
+        description: Status
+        type: integer
+    type: object
+  open_resp.DeptMemberListResp:
+    properties:
+      code:
+        description: Code
+        type: string
+      id:
+        description: Id
+        type: integer
+      isHide:
+        description: IsHide
+        type: integer
+      name:
+        description: Name
+        type: string
+      orgId:
+        description: OrgId
+        type: integer
+      outOrgDepartmentCode:
+        description: OutOrgDepartmentCode
+        type: string
+      outOrgDepartmentId:
+        description: OutOrgDepartmentId
+        type: string
+      outOrgDepartmentParentId:
+        description: OutOrgDepartmentParentId
+        type: string
+      parentId:
+        description: ParentId
+        type: integer
+      path:
+        description: Path
+        type: string
+      sort:
+        description: Sort
+        type: integer
+      status:
+        description: Status
+        type: integer
+      userList:
+        items:
+          $ref: '#/definitions/open_resp.SimpleMemberInfo'
+        type: array
+    type: object
+  open_resp.OrgMemberBaseResp:
+    properties:
+      avatar:
+        description: Avatar 用户头像
+        type: string
+      createTime:
+        description: CreateTime 创建时间
+        type: string
+      creator:
+        description: Creator 组织成员 创建者
+        type: integer
+      deptList:
+        description: DeptList 部门列表
+        items:
+          $ref: '#/definitions/open_resp.UserDeptBindData'
+        type: array
+      email:
+        description: Email 邮箱
+        type: string
+      empNo:
+        description: EmpNo 工号
+        type: string
+      loginName:
+        description: LoginName
+        type: string
+      name:
+        description: Name 姓名
+        type: string
+      namePy:
+        description: NamePy 姓名拼音
+        type: string
+      orgOwner:
+        description: OrgOwner 组织拥有者
+        type: integer
+      phoneNumber:
+        description: PhoneNumber 手机
+        type: string
+      phoneRegion:
+        description: PhoneRegion 手机区号
+        type: string
+      roleList:
+        description: RoleList 角色列表
+        items:
+          $ref: '#/definitions/open_resp.UserRoleBindData'
+        type: array
+      status:
+        description: Status 状态1启用2禁用
+        type: integer
+      updateTime:
+        description: UpdateTime 创建时间
+        type: string
+      updator:
+        description: Updator 组织成员 最后修改者ID
+        type: integer
+      userId:
+        description: UserID
+        type: integer
+      weiboIds:
+        description: WeiboIds 微博ID
+        type: string
+    type: object
+  open_resp.OrgUserAuthBaseResp:
+    properties:
+      deptIds:
+        description: DeptIds 所属部门ID列表
+        items:
+          type: integer
+        type: array
+      isOrgOwner:
+        description: IsOrgOwner 是否是组织拥有者
+        type: boolean
+      isSubAdmin:
+        description: IsSubAdmin 是否是子管理员
+        type: boolean
+      isSysAdmin:
+        description: IsSysAdmin 是否是系统管理员
+        type: boolean
+      loginName:
+        description: LoginName
+        type: string
+      nickname:
+        description: Nickname
+        type: string
+      orgOwner:
+        description: OrgOwner 组织拥有者
+        type: integer
+      roleIds:
+        description: RoleIds 所属角色ID列表
+        items:
+          type: integer
+        type: array
+      userId:
+        description: UserID
+        type: integer
+    type: object
+  open_resp.RoleInfoResp:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      roleGroupId:
+        type: integer
+    type: object
+  open_resp.SimpleMemberInfo:
+    properties:
+      nickname:
+        type: string
+      status:
+        description: Status
+        type: integer
+      userId:
+        type: integer
+    type: object
+  open_resp.UserBindDeptAndRoleResp:
+    properties:
+      deptList:
+        description: DeptList 部门列表
+        items:
+          $ref: '#/definitions/open_resp.UserDeptBindData'
+        type: array
+      roleList:
+        description: RoleList 角色列表
+        items:
+          $ref: '#/definitions/open_resp.UserRoleBindData'
+        type: array
+    type: object
+  open_resp.UserDeptBindData:
+    properties:
+      departmentId:
+        description: DepartmentId 部门ID
+        type: integer
+      departmentName:
+        description: DepartmentName 部门名称
+        type: string
+      isLeader:
+        description: IsLeader 是否是部门负责人 1是 2否
+        type: integer
+      outOrgDepartmentCode:
+        description: OutOrgDepartmentCode
+        type: string
+      outOrgDepartmentId:
+        description: OutOrgDepartmentId
+        type: string
+      outOrgDepartmentParentId:
+        description: OutOrgDepartmentParentId
+        type: string
+      positionId:
+        description: PositionId 注意此处是org内的职级ID
+        type: integer
+      positionLevel:
+        description: PositionLevel 职级等级
+        type: integer
+      positionName:
+        description: PositionName 职级名称
+        type: string
+    type: object
+  open_resp.UserDeptBindResp:
+    properties:
+      departmentId:
+        description: DepartmentId 部门ID
+        type: integer
+      departmentName:
+        description: DepartmentName 部门名称
+        type: string
+      isLeader:
+        description: IsLeader 是否是部门负责人 1是 2否
+        type: integer
+      nickname:
+        type: string
+      outOrgDepartmentCode:
+        description: OutOrgDepartmentCode
+        type: string
+      outOrgDepartmentId:
+        description: OutOrgDepartmentId
+        type: string
+      outOrgDepartmentParentId:
+        description: OutOrgDepartmentParentId
+        type: string
+      positionId:
+        description: PositionId 注意此处是org内的职级ID
+        type: integer
+      positionLevel:
+        description: PositionLevel 职级等级
+        type: integer
+      positionName:
+        description: PositionName 职级名称
+        type: string
+      status:
+        description: Status
+        type: integer
+      userId:
+        type: integer
+    type: object
+  open_resp.UserRoleBindData:
+    properties:
+      roleId:
+        type: integer
+      roleName:
+        type: string
+    type: object
+  open_resp.UserRoleBindResp:
+    properties:
+      nickname:
+        type: string
+      roleId:
+        type: integer
+      roleName:
+        type: string
+      status:
+        description: Status
+        type: integer
+      userId:
+        type: integer
+    type: object
+  req.AggregationReq:
+    properties:
+      query:
+        description: 搜索内容
+        type: string
+    type: object
+  req.AllocateUserDeptReq:
+    properties:
+      dstDeptIds:
+        description: DstDeptIds 把用户分配给这些部门
+        items:
+          type: integer
+        type: array
+      userIds:
+        description: UserIds 给这些用户分配部门
+        items:
+          type: integer
+        type: array
+    type: object
+  req.AssignRoleRqe:
+    properties:
+      roleIds:
+        description: 角色ID列表
+        items:
+          type: integer
+        type: array
+      userId:
+        description: 用户ID
+        type: integer
+    type: object
+  req.AuthSmsCodeReq:
+    properties:
+      authType:
+        description: '验证方式: 1: 登录验证码，2：注册验证码，3：修改密码验证码，4：找回密码验证码，5：绑定验证码, 6：解绑验证码，7更换管理员发送短信。'
+        type: integer
+      captchaPassword:
+        description: 输入的验证码
+        type: string
+      phoneNumber:
+        description: 手机号
+        type: string
+    type: object
+  req.BindLoginNameReq:
+    properties:
+      address:
+        description: 登录地址，手机号或者邮箱
+        type: string
+      addressType:
+        description: '地址类型: 1：手机号，2：邮箱'
+        type: integer
+      authCode:
+        description: 验证码
+        type: string
+      changeBindCode:
+        description: 邮箱、手机号换绑时，需要的校验码
+        type: string
+    type: object
+  req.ChangeDeptSortReq:
+    properties:
+      deptId:
+        description: 部门ID
+        type: integer
+      sort:
+        description: 部门ID
+        type: integer
+    type: object
+  req.ChangeUserAdminGroupReq:
+    properties:
+      authCode:
+        description: 验证码。如果是更换**超管**，则必须传该字段，通过手机号获取验证码。
+        type: string
+      dstAdminGroupId:
+        description: DstAdminGroupId 切换后的管理组 id
+        type: integer
+      dstAdminGroupIds:
+        description: DstAdminGroupIds 切换后的管理组 id 支持多个
+        items:
+          type: integer
+        type: array
+      sourceFrom:
+        description: SourceFrom 应用来源：极星应用：`polaris`；
+        type: string
+      userId:
+        description: UserId 用户 id，为该用户变更管理组
+        type: integer
+    type: object
+  req.ChangeUserDeptAndPositionReq:
+    properties:
+      deptAndPositions:
+        description: DeptAndPositions 部门和职级ID
+        items:
+          $ref: '#/definitions/req.DeptAndPositionReq'
+        type: array
+      userId:
+        description: UserId 用户ID(必填)
+        type: integer
+    type: object
+  req.CheckLoginNameExistReq:
+    properties:
+      name:
+        description: 用户名，中文
+        type: string
+    type: object
+  req.ContactFilterReq:
+    properties:
+      memberLimit:
+        description: 成员查询数量，默认1000
+        type: integer
+      memberOffset:
+        description: 成员查询起始位置，默认0
+        type: integer
+      onlyMember:
+        description: 只查询成员
+        type: boolean
+      parentId:
+        description: 父部门ID, 传0代表根部门，不需要限制则不传
+        type: integer
+      scope:
+        $ref: '#/definitions/req.ContactScope'
+        description: 搜索范围
+    type: object
+  req.ContactScope:
+    properties:
+      departmentIds:
+        description: 部门范围
+        items:
+          type: integer
+        type: array
+      userIds:
+        description: 用户范围
+        items:
+          type: integer
+        type: array
+    type: object
+  req.ContactSearchReq:
+    properties:
+      limit:
+        description: Limit, default 1000
+        type: integer
+      offset:
+        description: Offset, default 0
+        type: integer
+      onlyMember:
+        description: 只查询成员
+        type: boolean
+      query:
+        description: 搜索内容
+        type: string
+      scope:
+        $ref: '#/definitions/req.ContactScope'
+        description: 搜索范围
+      searchType:
+        description: 搜索类型，1：成员，2：部门
+        type: integer
+    type: object
+  req.CreateDepartmentReq:
+    properties:
+      leaderIds:
+        description: 部门负责人(选填)
+        items:
+          type: integer
+        type: array
+      name:
+        description: 部门名称
+        type: string
+      parentId:
+        description: 父部门id（根目录为0）
+        type: integer
+    type: object
+  req.CreateManageGroup:
+    properties:
+      groupType:
+        description: 类型 1.系统管理组 2.普通管理组 3.bjx-普通管理员 4.bjx-普通成员,5.bjx-用户创建
+        type: integer
+      name:
+        description: 名称
+        type: string
+      optAuth:
+        description: 权限项
+        items:
+          type: string
+        type: array
+    type: object
+  req.CreateOrgMemberReq:
+    properties:
+      avatar:
+        description: 昵称
+        type: string
+      deptAndPositions:
+        description: 部门id
+        items:
+          $ref: '#/definitions/req.DeptAndPositionReq'
+        type: array
+      email:
+        description: 邮箱
+        type: string
+      empNo:
+        description: 工号
+        type: string
+      loginName:
+        description: 账号
+        type: string
+      name:
+        description: 昵称
+        type: string
+      password:
+        description: 密码
+        type: string
+      phoneNumber:
+        description: 手机号
+        type: string
+      phoneRegion:
+        description: 手机区号
+        type: string
+      roleIds:
+        description: 角色id
+        items:
+          type: integer
+        type: array
+      status:
+        description: 状态（1启用2禁用3离职, 默认启用） 忽视0
+        type: integer
+      weiboIds:
+        description: 微博
+        items:
+          type: string
+        type: array
+    type: object
+  req.CreateOrgReq:
+    properties:
+      creatorName:
+        description: 补全个人姓名
+        type: string
+      importSampleData:
+        description: 是否要导入示例数据, 1：导入，2：不导入，默认不导入
+        type: integer
+      industryId:
+        description: 所属行业id(选填)
+        type: integer
+      orgName:
+        description: 组织名称
+        type: string
+      scale:
+        description: 组织规模（选填）
+        type: string
+      sourceChannel:
+        description: 来源渠道
+        type: string
+      sourcePlatform:
+        description: 来源平台
+        type: string
+    type: object
+  req.CreatePositionReq:
+    properties:
+      name:
+        description: Name 名称
+        type: string
+      positionLevel:
+        description: PositionLevel 等级
+        type: integer
+      remark:
+        description: Remark 说明
+        type: string
+      status:
+        description: Status 状态
+        type: integer
+    type: object
+  req.CreateRoleReq:
+    properties:
+      name:
+        description: 名称
+        type: string
+      roleGroupId:
+        description: 角色组ID
+        type: integer
+    type: object
+  req.DeleteDepartmentReq:
+    properties:
+      departmentId:
+        description: 部门id
+        type: integer
+    type: object
+  req.DeleteManageGroup:
+    properties:
+      id:
+        description: ID
+        type: integer
+    type: object
+  req.DepartmentListReq:
+    properties:
+      deptIds:
+        description: 部门ID范围
+        items:
+          type: integer
+        type: array
+      isShowDeptUserCount:
+        description: 是否返回部门的人数。0、2不展示，1展示
+        type: integer
+      isTop:
+        description: 是否查询最上级部门, 如果是1则为true（选填）
+        type: integer
+      name:
+        description: 部门名称（选填）
+        type: string
+      page:
+        description: 页码（选填，不填为全部）
+        type: integer
+      parentId:
+        description: 父部门id（选填）
+        type: integer
+      showHiding:
+        description: 是否显示隐藏的部门，如果是1则为true，默认不显示（选填）
+        type: integer
+      size:
+        description: 数量（选填，不填为全部）
+        type: integer
+    type: object
+  req.DeptAndPositionReq:
+    properties:
+      departmentId:
+        description: DepartmentId 部门ID(必填)
+        type: integer
+      positionId:
+        description: PositionId 职级ID(必填 注意是Org内的OrgPositionId)
+        type: integer
+    type: object
+  req.DeptRemoveUsersReq:
+    properties:
+      deptId:
+        description: 部门 id
+        type: integer
+      userIds:
+        description: UserIds 用户 id，将这些用户移出部门
+        items:
+          type: integer
+        type: array
+    type: object
+  req.ExportAddressListReq:
+    properties:
+      authFilter:
+        description: 是否开启权限过滤
+        type: boolean
+      departmentId:
+        description: 部门id
+        type: integer
+      exportField:
+        description: 导出字段(name,mobile,empNo,email,department,role,isLeader,statusChangeTime,createTime)
+        items:
+          type: string
+        type: array
+      isAllocate:
+        description: 是否已分配部门（1已分配2未分配，默认全部）
+        type: integer
+      roleId:
+        description: 角色id
+        type: integer
+      searchCode:
+        description: 搜索字段
+        type: string
+      status:
+        description: 是否禁用（1启用2禁用，默认全部）
+        type: integer
+    type: object
+  req.ExportLoginRecordListReq:
+    properties:
+      accountNo:
+        description: AccountNo
+        type: string
+      endDate:
+        description: EndDate
+        type: string
+      ip:
+        description: IP
+        type: string
+      startDate:
+        description: StartDate
+        type: string
+    type: object
+  req.GetInviteInfoReq:
+    properties:
+      inviteCode:
+        type: string
+    type: object
+  req.GetOssPostPolicyReq:
+    properties:
+      folderId:
+        description: 目录id, policy为4的时候必填。没有则传 0。
+        type: integer
+      issueId:
+        description: 如果policyType为2，那么issueId必传。没有则传 0。
+        type: integer
+      policyType:
+        description: '策略类型, 1: 项目封面，2：任务资源（需要callback）, 3：导入任务的excel，4：项目文件（需要callback），5：兼容测试，6:用户头像，9:备忘录'
+        type: integer
+      projectId:
+        description: 如果policyType为1和2和3，那么projectId必传(创建场景传0)。没有则传 0。
+        type: integer
+    type: object
+  req.IdReq:
+    properties:
+      id:
+        description: ID
+        type: integer
+    type: object
+  req.IdsReq:
+    properties:
+      ids:
+        description: Ids ID列表
+        items:
+          type: integer
+        type: array
+    type: object
+  req.InviteUserData:
+    properties:
+      email:
+        description: 邮箱
+        type: string
+      name:
+        description: 姓名（再次邀请时不用传了）
+        type: string
+    type: object
+  req.InviteUserListReq:
+    properties:
+      page:
+        description: 页码（选填，不填为全部）
+        type: integer
+      size:
+        description: 数量（选填，不填为全部）
+        type: integer
+    type: object
+  req.InviteUserReq:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/req.InviteUserData'
+        type: array
+    type: object
+  req.LoginRecordListReq:
+    properties:
+      accountNo:
+        description: AccountNo
+        type: string
+      endDate:
+        description: EndDate
+        type: string
+      ip:
+        description: IP
+        type: string
+      order:
+        type: string
+      page:
+        type: integer
+      size:
+        type: integer
+      startDate:
+        description: StartDate
+        type: string
+    type: object
+  req.MoveRoleReq:
+    properties:
+      id:
+        description: 角色ID
+        type: integer
+      roleGroupId:
+        description: 角色名称, 必填
+        type: integer
+    type: object
+  req.OldNewPasswordReq:
+    properties:
+      currentPassword:
+        description: 当前密码
+        type: string
+      newPassword:
+        description: 新密码
+        type: string
+    type: object
+  req.PasswordReq:
+    properties:
+      password:
+        description: 密码
+        type: string
+    type: object
+  req.RemoveInviteUserReq:
+    properties:
+      ids:
+        description: 要移除的id
+        items:
+          type: integer
+        type: array
+      isAll:
+        description: 是否删除全部(1是，其余为否)
+        type: integer
+    type: object
+  req.RemoveOrgMemberReq:
+    properties:
+      memberIds:
+        description: 要移除的组织成员列表
+        items:
+          type: integer
+        type: array
+    type: object
+  req.RetrievePasswordReq:
+    properties:
+      authCode:
+        description: 验证码
+        type: string
+      newPassword:
+        description: 新密码
+        type: string
+      username:
+        description: 账号，可以是邮箱或者手机号
+        type: string
+    type: object
+  req.RoleFilterReq:
+    properties:
+      query:
+        description: 搜索内容
+        type: string
+    type: object
+  req.RoleGroupReq:
+    properties:
+      name:
+        description: 名称
+        type: string
+    type: object
+  req.SearchPositionListReq:
+    properties:
+      status:
+        description: Status 状态 1启用 2停用
+        type: integer
+    type: object
+  req.SearchPositionPageListReq:
+    properties:
+      order:
+        type: string
+      page:
+        type: integer
+      size:
+        type: integer
+      status:
+        description: Status 状态 1启用 2停用
+        type: integer
+    type: object
+  req.SearchUserReq:
+    properties:
+      email:
+        type: string
+    type: object
+  req.SendAuthCodeReq:
+    properties:
+      address:
+        description: 联系地址，根据地址类型区分手机号或者邮箱
+        type: string
+      addressType:
+        description: '地址类型: 1：手机号，2：邮箱'
+        type: integer
+      authType:
+        description: '验证方式: 1: 登录验证码，2：注册验证码，3：修改密码验证码，4：找回密码验证码，5：绑定验证码, 6：解绑验证码'
+        type: integer
+      captchaId:
+        description: 验证码id
+        type: string
+      captchaPassword:
+        description: 输入的验证码
+        type: string
+    type: object
+  req.SetPasswordReq:
+    properties:
+      input:
+        $ref: '#/definitions/req.PasswordReq'
+      userId:
+        type: integer
+    type: object
+  req.UnbindLoginNameReq:
+    properties:
+      addressType:
+        description: '地址类型: 1：手机号，2：邮箱'
+        type: integer
+      authCode:
+        description: 验证码
+        type: string
+    type: object
+  req.UpdateDepartmentReq:
+    properties:
+      departmentId:
+        description: 部门id
+        type: integer
+      leaderIds:
+        description: 部门负责人(选填，不传表示不更新，传空数组则表示取消部门负责人)
+        items:
+          type: integer
+        type: array
+      name:
+        description: 部门名称（选填）
+        type: string
+      userIds:
+        description: 部门下的普通成员(选填，不传表示不更新，传空数组则表示取消部门负责人)
+        items:
+          type: integer
+        type: array
+    type: object
+  req.UpdateDeptLeaderReq:
+    properties:
+      departmentId:
+        description: 部门id
+        type: integer
+      isLeader:
+        description: 是否是部门负责人(1是2否)
+        type: integer
+      userId:
+        description: 用户id
+        type: integer
+    type: object
+  req.UpdateManageGroup:
+    properties:
+      id:
+        description: ID
+        type: integer
+      name:
+        description: 名称
+        type: string
+    type: object
+  req.UpdateManageGroupContents:
+    properties:
+      authToken:
+        description: AuthToken 校验的 token，做一些特殊操作时，需要带上验证 token，如：更换管理员。
+        type: string
+      id:
+        description: Id 管理组ID
+        type: integer
+      key:
+        description: Key 属性名称 user_ids|app_package_ids|dept_ids|role_ids|app_ids
+        type: string
+      sourceFrom:
+        description: SourceFrom 调用来源。默认为空，如果是极星，则传 `polaris`
+        type: string
+      valueIf:
+        description: 由于 Values 值是特定的 []int64，为了兼容已经存在的接口，再加一个字段 valueIf（value interface），用于存放其他值。这两者互斥，如果
+          values 有值，则优先使用 values。
+        type: object
+      values:
+        description: Values ID列表
+        items:
+          type: integer
+        type: array
+    type: object
+  req.UpdateOrgMemberReq:
+    properties:
+      adminGroup:
+        description: 管理组。一个用户可以在多个管理组中。
+        items:
+          type: integer
+        type: array
+      avatar:
+        description: 头像。可选
+        type: string
+      departmentIds:
+        description: 用户所在的部门 ids. polaris 没有职级,因此无法使用 DeptAndPositions 字段
+        items:
+          type: integer
+        type: array
+      deptAndPositions:
+        description: 部门/职级列表
+        items:
+          $ref: '#/definitions/req.DeptAndPositionReq'
+        type: array
+      email:
+        description: 邮箱。可选
+        type: string
+      empNo:
+        description: 工号。可选
+        type: string
+      name:
+        description: 姓名。可选
+        type: string
+      phoneNumber:
+        description: 手机号。可选
+        type: string
+      phoneRegion:
+        description: 手机区号。可选，不传表示不更新该字段。
+        type: string
+      roleIds:
+        description: 角色id
+        items:
+          type: integer
+        type: array
+      status:
+        description: 状态（1启用2禁用3离职 选填）
+        type: integer
+      userId:
+        description: UserId
+        type: integer
+      weiboIds:
+        description: 微博。
+        items:
+          type: string
+        type: array
+    type: object
+  req.UpdateOrgMemberStatusReq:
+    properties:
+      memberIds:
+        description: 要修改的组织成员列表
+        items:
+          type: integer
+        type: array
+      status:
+        description: 状态,  1可用,2禁用,3离职
+        type: integer
+    type: object
+  req.UpdatePasswordByLoginNameReq:
+    properties:
+      input:
+        $ref: '#/definitions/req.OldNewPasswordReq'
+      username:
+        description: Username 用户名，手机号，邮箱
+        type: string
+    type: object
+  req.UpdatePositionStatusReq:
+    properties:
+      positionId:
+        description: PositionId 组织内职级ID
+        type: integer
+      status:
+        description: Status 状态 1启用 2停用
+        type: integer
+    type: object
+  req.UpdateRoleGroupReq:
+    properties:
+      id:
+        description: ID
+        type: integer
+      name:
+        description: 名称
+        type: string
+    type: object
+  req.UpdateRoleReq:
+    properties:
+      id:
+        description: 角色ID
+        type: integer
+      name:
+        description: 角色名称, 必填
+        type: string
+    type: object
+  req.UpdateRoleUserRefRqe:
+    properties:
+      roleId:
+        description: 角色ID
+        type: integer
+      userIds:
+        description: 用户ID列表
+        items:
+          type: integer
+        type: array
+    type: object
+  req.UpdateUserInfoReq:
+    properties:
+      avatar:
+        description: 用户头像
+        type: string
+      birthday:
+        description: 生日
+        type: string
+      name:
+        description: 姓名
+        type: string
+      sex:
+        description: 性别
+        type: integer
+      updateFields:
+        description: 变动的字段列表
+        items:
+          type: string
+        type: array
+    type: object
+  req.UserListReq:
+    properties:
+      authFilter:
+        description: 是否开启权限过滤
+        type: boolean
+      checkStatus:
+        description: 审核状态。1待审核；2审核通过；3审核不通过
+        items:
+          type: integer
+        type: array
+      departmentId:
+        description: 部门id
+        type: integer
+      isAllocate:
+        description: 是否已分配部门（1已分配2未分配，默认全部）
+        type: integer
+      order:
+        description: 排序字段 如"create_time desc,id asc"
+        type: string
+      page:
+        description: 页码（选填，不填为全部）
+        type: integer
+      positionId:
+        description: 职级ID
+        type: integer
+      roleId:
+        description: 角色id
+        type: integer
+      searchCode:
+        description: 搜索字段
+        type: string
+      size:
+        description: 数量（选填，不填为全部）
+        type: integer
+      status:
+        description: 是否禁用（1启用2禁用，默认全部）
+        type: integer
+    type: object
+  req.UserLoginReq:
+    properties:
+      authCode:
+        description: 验证码
+        type: string
+      inviteCode:
+        description: 邀请码, 邀请注册时必填
+        type: string
+      loginName:
+        description: 登录类型为1时，loginName为手机号； 登录类型为3时，loginName为邮箱（必填）
+        type: string
+      loginType:
+        description: '登录类型: 1、短信验证码登录，2、账号密码登录，3、邮箱验证码登录（必填）'
+        type: integer
+      name:
+        description: 注册时可以带上名字
+        type: string
+      password:
+        description: 登录类型为2时，密码必传
+        type: string
+      sourceChannel:
+        description: 来源通道
+        type: string
+      sourcePlatform:
+        description: 平台
+        type: string
+    type: object
+  req.UserQuitReq:
+    properties:
+      token:
+        type: string
+    type: object
+  req.UserRegisterReq:
+    properties:
+      authCode:
+        description: 短信验证码
+        type: string
+      email:
+        description: 邮箱
+        type: string
+      inviteCode:
+        description: 邀请码, 邀请注册时必填
+        type: string
+      name:
+        description: 姓名（选填）
+        type: string
+      password:
+        description: 密码
+        type: string
+      phoneNumber:
+        description: 手机号
+        type: string
+      sourceChannel:
+        description: 来源通道
+        type: string
+      sourcePlatform:
+        description: 平台
+        type: string
+    type: object
+  resp.AggregationResp:
+    properties:
+      depList:
+        description: 子部门列表， searchType为2时返回
+        items:
+          $ref: '#/definitions/resp.ContactDepartment'
+        type: array
+      roleList:
+        description: 角色列表
+        items:
+          $ref: '#/definitions/resp.RoleNode'
+        type: array
+      user:
+        description: 用户列表， searchType为1时返回
+        items:
+          $ref: '#/definitions/resp.ContactUser'
+        type: array
+    type: object
+  resp.AuthSmsCodeResp:
+    properties:
+      authType:
+        description: 验证方式。接口入参中传过来的。
+        type: integer
+      token:
+        description: 校验成功后的 token，通过此 token 可以做一些操作。有效期 5 min
+        type: string
+    type: object
+  resp.CacheUserInfoBo:
+    properties:
+      corpId:
+        type: string
+      orgId:
+        type: integer
+      outUserId:
+        type: string
+      sourceChannel:
+        type: string
+      userId:
+        type: integer
+    type: object
+  resp.ContactDepartment:
+    properties:
+      childrenCount:
+        description: 子部门总数
+        type: integer
+      id:
+        description: 部门ID
+        example: "0"
+        type: string
+      name:
+        description: 部门名称
+        type: string
+      parentId:
+        description: 父ID
+        example: "0"
+        type: string
+      pathNodes:
+        description: 部门层级
+        items:
+          $ref: '#/definitions/resp.ContactPathNode'
+        type: array
+      userCount:
+        description: 成员总数
+        type: integer
+      visible:
+        description: 是否可见
+        type: boolean
+    type: object
+  resp.ContactFilterResp:
+    properties:
+      depList:
+        description: 子部门列表
+        items:
+          $ref: '#/definitions/resp.ContactDepartment'
+        type: array
+      orgTotalNum:
+        description: 组织总人数
+        type: integer
+      pathNodes:
+        description: 部门层级，顺序返回
+        items:
+          $ref: '#/definitions/resp.ContactPathNode'
+        type: array
+      user:
+        description: 用户列表
+        items:
+          $ref: '#/definitions/resp.ContactUser'
+        type: array
+      userHasMore:
+        description: 是否有更多的用户
+        type: boolean
+      userTotalNum:
+        description: 部门用户总数
+        type: integer
+    type: object
+  resp.ContactPathNode:
+    properties:
+      depId:
+        description: 部门ID
+        example: "0"
+        type: string
+      depName:
+        description: 部门名称
+        type: string
+      parentId:
+        description: 父部门ID
+        example: "0"
+        type: string
+      visible:
+        description: 是否可见
+        type: boolean
+    type: object
+  resp.ContactSearchResp:
+    properties:
+      depList:
+        description: 子部门列表， searchType为2时返回
+        items:
+          $ref: '#/definitions/resp.ContactDepartment'
+        type: array
+      hasMore:
+        description: 是否有更多
+        type: boolean
+      user:
+        description: 用户列表， searchType为1时返回
+        items:
+          $ref: '#/definitions/resp.ContactUser'
+        type: array
+    type: object
+  resp.ContactUser:
+    properties:
+      avatar:
+        description: 头像
+        type: string
+      email:
+        description: 邮箱
+        type: string
+      id:
+        description: 用户ID
+        example: "0"
+        type: string
+      mobile:
+        description: 手机号
+        type: string
+      name:
+        description: 名称
+        type: string
+      pathNodesList:
+        description: 部门层级
+        items:
+          items:
+            $ref: '#/definitions/resp.ContactPathNode'
+          type: array
+        type: array
+    type: object
+  resp.CreateOrgRespVoData:
+    properties:
+      orgId:
+        type: integer
+    type: object
+  resp.Department:
+    properties:
+      code:
+        description: 部门标识
+        type: string
+      createTime:
+        description: 创建时间
+        type: string
+      creator:
+        description: 创建人
+        type: integer
+      deletable:
+        description: 是否可删除
+        type: boolean
+      deptUserCount:
+        description: 部门人数，包含子部门
+        type: integer
+      editable:
+        description: 是否可编辑
+        type: boolean
+      id:
+        description: 主键
+        type: integer
+      isHide:
+        description: 是否隐藏部门,1隐藏,2不隐藏
+        type: integer
+      leaderInfo:
+        description: 部门负责人信息
+        items:
+          $ref: '#/definitions/resp.DeptLeaderUserInfo'
+        type: array
+      name:
+        description: 部门名称
+        type: string
+      orgId:
+        description: 组织id
+        type: integer
+      parentId:
+        description: 父部门id
+        type: integer
+      sort:
+        description: 排序
+        type: integer
+      sourceChannel:
+        description: 来源渠道,
+        type: string
+    type: object
+  resp.DepartmentList:
+    properties:
+      list:
+        description: 列表
+        items:
+          $ref: '#/definitions/resp.Department'
+        type: array
+      total:
+        description: 总数
+        type: integer
+    type: object
+  resp.DeptLeaderUserInfo:
+    properties:
+      avatar:
+        description: 用户头像
+        type: string
+      name:
+        description: 姓名
+        type: string
+      namePy:
+        description: 姓名拼音
+        type: string
+      userId:
+        description: id
+        type: integer
+    type: object
+  resp.ExportAddressListResp:
+    properties:
+      url:
+        type: string
+    type: object
+  resp.GetInviteCodeResp:
+    properties:
+      expire:
+        type: integer
+      inviteCode:
+        type: string
+    type: object
+  resp.GetOperationConfigResp:
+    properties:
+      optAuthExtraInfo:
+        additionalProperties: true
+        description: OptAuthExtraInfo 权限项的额外信息
+        type: object
+      optAuthList:
+        description: OptAuthList 权限项列表
+        items:
+          $ref: '#/definitions/resp.GetOperationConfigRespItem'
+        type: array
+    type: object
+  resp.GetOperationConfigRespItem:
+    properties:
+      code:
+        description: Code 权限项标识
+        type: string
+      group:
+        description: Group 权限组名称
+        type: string
+      groupCode:
+        description: GroupCode 权限组标识
+        type: string
+      name:
+        description: Name 权限项名称
+        type: string
+      showStatus:
+        description: ShowStatus 权限项是否展示的状态。1展示；2不展示。
+        type: integer
+    type: object
+  resp.GetOssPostPolicyResp:
+    properties:
+      accessId:
+        description: access Id
+        type: string
+      bucket:
+        description: bucket名称
+        type: string
+      callback:
+        description: callback回调，为空说明不需要回调
+        type: string
+      dir:
+        description: 文件上传目录
+        type: string
+      expire:
+        description: 有效期
+        type: string
+      fileName:
+        description: 文件名
+        type: string
+      host:
+        description: Host
+        type: string
+      maxFileSize:
+        description: 文件最大限制
+        type: integer
+      policy:
+        description: policy
+        type: string
+      region:
+        description: Region
+        type: string
+      signature:
+        description: 签名
+        type: string
+    type: object
+  resp.IndustryListResp:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/resp.IndustryResp'
+        type: array
+    type: object
+  resp.IndustryResp:
+    properties:
+      cname:
+        description: 中文名
+        type: string
+      id:
+        description: 主键
+        type: integer
+      name:
+        description: 名字
+        type: string
+    type: object
+  resp.InviteUserInfo:
+    properties:
+      email:
+        description: 邮箱
+        type: string
+      id:
+        description: 用户id
+        type: integer
+      inviteTime:
+        description: 邀请时间
+        type: string
+      isInvitedRecent:
+        description: 是否24h内已邀请
+        type: boolean
+      name:
+        description: 名称
+        type: string
+    type: object
+  resp.InviteUserListResp:
+    properties:
+      list:
+        description: 列表
+        items:
+          $ref: '#/definitions/resp.InviteUserInfo'
+        type: array
+      total:
+        description: 总数
+        type: integer
+    type: object
+  resp.InviteUserResp:
+    properties:
+      invalidEmail:
+        description: 不符合规范的邮箱
+        items:
+          type: string
+        type: array
+      invitedEmail:
+        description: 已邀请的邮箱
+        items:
+          type: string
+        type: array
+      isUserEmail:
+        description: 已经是用户的邮箱
+        items:
+          type: string
+        type: array
+      successEmail:
+        description: 成功的邮箱
+        items:
+          type: string
+        type: array
+    type: object
+  resp.LoginRecordData:
+    properties:
+      accountNo:
+        description: AccountNo
+        type: string
+      createTime:
+        description: CreateTime
+        type: string
+      id:
+        description: ID
+        type: integer
+      ip:
+        description: IP
+        type: string
+      msg:
+        description: Msg
+        type: string
+      userAgent:
+        description: UserAgent
+        type: string
+      userId:
+        description: UserId
+        type: integer
+    type: object
+  resp.LoginRecordListResp:
+    properties:
+      list:
+        description: List
+        items:
+          $ref: '#/definitions/resp.LoginRecordData'
+        type: array
+      total:
+        description: Total
+        type: integer
+    type: object
+  resp.ManageGroupDetailResp:
+    properties:
+      adminGroup:
+        $ref: '#/definitions/resp.ManageGroupInfo'
+        description: AdminGroup 管理组信息
+      headData:
+        $ref: '#/definitions/resp.ManageGroupHead'
+        description: HeadData 附属信息
+    type: object
+  resp.ManageGroupHead:
+    properties:
+      appPackages:
+        description: AppPackages
+        items:
+          $ref: '#/definitions/resp.ManageGroupHeadData'
+        type: array
+      apps:
+        description: Apps
+        items:
+          $ref: '#/definitions/resp.ManageGroupHeadData'
+        type: array
+      depts:
+        description: Depts
+        items:
+          $ref: '#/definitions/resp.ManageGroupHeadData'
+        type: array
+      roles:
+        description: Roles
+        items:
+          $ref: '#/definitions/resp.ManageGroupHeadData'
+        type: array
+      users:
+        description: Users
+        items:
+          $ref: '#/definitions/resp.ManageGroupHeadDataUser'
+        type: array
+    type: object
+  resp.ManageGroupHeadData:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  resp.ManageGroupHeadDataUser:
+    properties:
+      avatar:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      phoneNumber:
+        type: string
+    type: object
+  resp.ManageGroupInfo:
+    properties:
+      appIds:
+        description: 应用权限
+        items:
+          type: integer
+        type: array
+      appPackageIds:
+        description: 应用包权限
+        items:
+          type: integer
+        type: array
+      createTime:
+        type: string
+      creator:
+        type: integer
+      deptIds:
+        description: 部门权限
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      langCode:
+        type: string
+      name:
+        type: string
+      optAuth:
+        description: 功能权限
+        items:
+          type: string
+        type: array
+      orgId:
+        type: integer
+      roleIds:
+        description: 角色权限
+        items:
+          type: integer
+        type: array
+      type:
+        description: 1 系统管理组 2普通管理组
+        type: integer
+      usageIds:
+        description: 功能权限  【废弃】
+        items:
+          type: integer
+        type: array
+      userIds:
+        description: 成员
+        items:
+          type: integer
+        type: array
+    type: object
+  resp.ManageGroupTreeResp:
+    properties:
+      generalGroups:
+        description: 普通管理组列表
+        items:
+          $ref: '#/definitions/resp.SimpleManageGroupInfo'
+        type: array
+      sysGroup:
+        $ref: '#/definitions/resp.SimpleManageGroupInfo'
+        description: 系统管理组
+    type: object
+  resp.OrgConfig:
+    properties:
+      createTime:
+        type: string
+      creator:
+        type: integer
+      datetimeFormat:
+        type: string
+      dbId:
+        type: integer
+      dcId:
+        type: integer
+      dsId:
+        type: integer
+      id:
+        type: integer
+      isDelete:
+        type: integer
+      language:
+        type: string
+      maxLoginFailCount:
+        type: integer
+      orgId:
+        type: integer
+      passwordLength:
+        type: integer
+      passwordRule:
+        type: integer
+      payEndTime:
+        type: string
+      payLevel:
+        type: integer
+      payStartTime:
+        type: string
+      projectDailyReportSendTime:
+        type: string
+      remindSendTime:
+        type: string
+      status:
+        type: integer
+      timeDifference:
+        type: string
+      timeZone:
+        type: string
+      updateTime:
+        type: string
+      updator:
+        type: integer
+      version:
+        type: integer
+      webSite:
+        type: string
+    type: object
+  resp.OrgMemberInfoReq:
+    properties:
+      adminGroupList:
+        description: 用户所在的管理组
+        items:
+          $ref: '#/definitions/bo.ManageGroupInfoBo'
+        type: array
+      avatar:
+        description: 用户头像
+        type: string
+      createTime:
+        description: 创建时间
+        type: string
+      creator:
+        description: 组织内用户创建者
+        type: integer
+      creatorName:
+        description: 组织内用户创建者名称
+        type: integer
+      departmentList:
+        description: 部门/职级信息
+        items:
+          $ref: '#/definitions/resp.UserDeptPositionData'
+        type: array
+      email:
+        description: 邮箱
+        type: string
+      empNo:
+        description: 工号
+        type: string
+      isCreator:
+        description: 是否是组织创建人
+        type: boolean
+      isOwner:
+        description: 是否是组织拥有者
+        type: boolean
+      loginName:
+        description: LoginName 用户名
+        type: string
+      name:
+        description: 姓名
+        type: string
+      namePy:
+        description: 姓名拼音
+        type: string
+      phoneNumber:
+        description: 手机号码
+        type: string
+      phoneRegion:
+        description: 手机区号
+        type: string
+      roleList:
+        description: 角色信息
+        items:
+          $ref: '#/definitions/resp.UserRoleData'
+        type: array
+      status:
+        description: 状态1启用2禁用
+        type: integer
+      statusChangeTime:
+        description: 禁用时间
+        type: string
+      userId:
+        description: id
+        type: integer
+      weiboIds:
+        description: 微博ID
+        items:
+          type: string
+        type: array
+    type: object
+  resp.PersonalInfo:
+    properties:
+      avatar:
+        description: 头像
+        type: string
+      birthday:
+        description: 生日
+        type: string
+      createTime:
+        description: 创建时间
+        type: string
+      departmentList:
+        description: 部门/职级信息
+        items:
+          $ref: '#/definitions/resp.UserDeptPositionData'
+        type: array
+      email:
+        description: 邮箱
+        type: string
+      emplId:
+        description: 工号
+        type: string
+      functions:
+        description: 权限
+        items:
+          type: string
+        type: array
+      id:
+        description: 主键
+        type: integer
+      isOrgOwner:
+        description: IsOrgOwner 是否是组织拥有者
+        type: boolean
+      isOutCollaborator:
+        description: IsOutCollaborator 是否是外部协作人
+        type: boolean
+      isSubAdmin:
+        description: IsSubAdmin 是否是子管理员
+        type: boolean
+      isSysAdmin:
+        description: IsSysAdmin 是否是系统管理员
+        type: boolean
+      language:
+        description: 语言
+        type: string
+      lastEditPwdTime:
+        description: LastEditPwdTime
+        type: string
+      lastLoginIp:
+        description: 上次登录ip
+        type: string
+      lastLoginTime:
+        description: 上次登录时间
+        type: string
+      level:
+        description: 付费等级
+        type: integer
+      levelName:
+        description: 付费等级名
+        type: string
+      loginFailCount:
+        description: 登录失败次数
+        type: integer
+      loginName:
+        description: 登录名
+        type: string
+      loginNameEditCount:
+        description: 登录名编辑次数
+        type: integer
+      mobile:
+        description: 电话
+        type: string
+      motto:
+        description: 座右铭
+        type: string
+      name:
+        description: 名称
+        type: string
+      orgCode:
+        description: 组织code
+        type: string
+      orgId:
+        description: 组织id
+        type: integer
+      orgName:
+        description: 组织名称
+        type: string
+      passwordSet:
+        description: 密码是否设置过(1已设置0未设置)
+        type: integer
+      remindBindPhone:
+        description: 是否需要提醒（1需要2不需要）
+        type: integer
+      rimanente:
+        description: 剩余使用时长
+        type: integer
+      roleList:
+        description: 角色信息
+        items:
+          $ref: '#/definitions/resp.UserRoleData'
+        type: array
+      sex:
+        description: 性别
+        type: integer
+      sourceChannel:
+        description: 来源
+        type: string
+      thirdName:
+        description: 第三方名称
+        type: string
+      updateTime:
+        description: 更新时间
+        type: string
+    type: object
+  resp.PositionInfoResp:
+    properties:
+      createTime:
+        type: string
+      creator:
+        type: integer
+      id:
+        type: integer
+      isDefault:
+        description: 是否是默认的
+        type: boolean
+      isDelete:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      positionId:
+        type: integer
+      positionLevel:
+        type: integer
+      remark:
+        type: string
+      status:
+        type: integer
+      updateTime:
+        type: string
+      updator:
+        type: integer
+    type: object
+  resp.PositionPageListResp:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/resp.PositionInfoResp'
+        type: array
+      total:
+        type: integer
+    type: object
+  resp.RoleFilterResp:
+    properties:
+      roleList:
+        description: 角色列表
+        items:
+          $ref: '#/definitions/resp.RoleNode'
+        type: array
+    type: object
+  resp.RoleGroup:
+    properties:
+      createTime:
+        type: string
+      creator:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      updateTime:
+        type: string
+      updator:
+        type: integer
+    type: object
+  resp.RoleGroupInfo:
+    properties:
+      createTime:
+        type: string
+      creator:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      updateTime:
+        type: string
+      updator:
+        type: integer
+    type: object
+  resp.RoleInfo:
+    properties:
+      createTime:
+        type: string
+      creator:
+        type: integer
+      editableMember:
+        description: Editable 是否可编辑成员
+        type: boolean
+      id:
+        type: integer
+      name:
+        type: string
+      orgId:
+        type: integer
+      roleGroupId:
+        type: integer
+      updateTime:
+        type: string
+      updator:
+        type: integer
+    type: object
+  resp.RoleListResp:
+    properties:
+      roleGroups:
+        description: RoleGroups 角色组列表
+        items:
+          $ref: '#/definitions/resp.RoleGroupInfo'
+        type: array
+      roles:
+        description: Roles 角色列表
+        items:
+          $ref: '#/definitions/resp.RoleInfo'
+        type: array
+    type: object
+  resp.RoleNode:
+    properties:
+      groupId:
+        description: 分组ID
+        type: integer
+      groupName:
+        description: 分组名称
+        type: string
+      id:
+        description: 角色名称
+        type: integer
+      name:
+        description: 角色ID
+        type: string
+      userCount:
+        description: 成员数
+        type: integer
+    type: object
+  resp.SearchUserResp:
+    properties:
+      status:
+        description: 搜索结果（1可邀请2已邀请3已添加）
+        type: integer
+      userInfo:
+        $ref: '#/definitions/resp.OrgMemberInfoReq'
+    type: object
+  resp.SimpleManageGroupInfo:
+    properties:
+      id:
+        type: integer
+      langCode:
+        type: string
+      name:
+        type: string
+      optAuth:
+        items:
+          type: string
+        type: array
+      orgId:
+        type: integer
+    type: object
+  resp.UnbindLoginNameResp:
+    properties:
+      changeBindCode:
+        description: 换绑时，第一步请求 unbind 时返回的验证码
+        type: string
+    type: object
+  resp.UserDeptPositionData:
+    properties:
+      deparmentName:
+        description: 部门id
+        type: string
+      departmentId:
+        description: 部门名称
+        type: integer
+      isLeader:
+        description: 是否是部门负责人1是2否
+        type: integer
+      positionId:
+        description: 职级ID 注意此处是Org内的职级ID
+        type: integer
+      positionLevel:
+        description: 职级级别
+        type: integer
+      positionName:
+        description: 职级名称
+        type: string
+    type: object
+  resp.UserListResp:
+    properties:
+      list:
+        description: 列表
+        items:
+          $ref: '#/definitions/resp.OrgMemberInfoReq'
+        type: array
+      total:
+        description: 总数
+        type: integer
+    type: object
+  resp.UserLoginResp:
+    properties:
+      avatar:
+        description: 头像
+        type: string
+      name:
+        description: 用户名称
+        type: string
+      needInitOrg:
+        description: 是否需要创建组织
+        type: boolean
+      orgCode:
+        description: 组织code
+        type: string
+      orgId:
+        description: 组织id
+        type: integer
+      orgName:
+        description: 组织名称
+        type: string
+      token:
+        description: 用户token
+        type: string
+      userId:
+        description: 用户id
+        type: integer
+    type: object
+  resp.UserManageAuthResp:
+    properties:
+      id:
+        type: integer
+      isOrgOwner:
+        description: 是否是组织拥有者
+        type: boolean
+      isSubAdmin:
+        description: 是否是子管理员
+        type: boolean
+      isSysAdmin:
+        description: 是否是系统管理员
+        type: boolean
+    type: object
+  resp.UserOrganization:
+    properties:
+      IsAuthenticated:
+        description: 企业是否认证
+        type: integer
+      OrgIsEnabled:
+        description: 对于该用户组织是否可用（1是2否）
+        type: integer
+      address:
+        description: 组织地址
+        type: string
+      cityId:
+        description: 所在城市
+        type: integer
+      code:
+        description: 组织code
+        type: string
+      countryId:
+        description: 所在国家
+        type: integer
+      functions:
+        description: 组织可用功能
+        items:
+          type: string
+        type: array
+      id:
+        description: 组织id
+        type: integer
+      industryId:
+        description: 所属行业
+        type: integer
+      isDelete:
+        description: 是否删除,1是,2否
+        type: integer
+      isShow:
+        description: 是否展示
+        type: integer
+      logoUrl:
+        description: 组织logo地址
+        type: string
+      name:
+        description: 组织名称
+        type: string
+      owner:
+        description: 组织所有人,创建时默认为创建人
+        type: integer
+      provinceId:
+        description: 所在省份
+        type: integer
+      remark:
+        description: 描述
+        type: string
+      resorceId:
+        description: 组织标识
+        type: integer
+      scale:
+        description: 组织规模
+        type: string
+      sourceChannel:
+        description: 来源渠道
+        type: string
+      sourcePlatform:
+        description: 来源平台
+        type: string
+      webSite:
+        description: 组织网站
+        type: string
+    type: object
+  resp.UserOrganizationListResp:
+    properties:
+      list:
+        description: 用户组织列表
+        items:
+          $ref: '#/definitions/resp.UserOrganization'
+        type: array
+    type: object
+  resp.UserRoleData:
+    properties:
+      roleId:
+        description: 角色id
+        type: integer
+      roleName:
+        description: 角色名称
+        type: string
+    type: object
+  resp.UserStatResp:
+    properties:
+      allCount:
+        description: 所有成员数量
+        type: integer
+      forbiddenCount:
+        description: 已禁用成员数量
+        type: integer
+      resignedCount:
+        description: 已离职成员数量
+        type: integer
+      unallocatedCount:
+        description: 未分配成员数量
+        type: integer
+      unreceivedCount:
+        description: 未接受邀请成员数量
+        type: integer
+      waitAuditCount:
+        description: 待审核成员数量
+        type: integer
+    type: object
+  vo.SwitchUserOrganizationReq:
+    properties:
+      orgId:
+        description: 组织id
+        type: integer
+    type: object
+info:
+  contact: {}
+  title: Ying Sou Sou Apis
+paths:
+  /open/usercenter/api/v1/auth/check:
+    post:
+      consumes:
+      - application/json
+      description: 校验token并验证状态接口
+      parameters:
+      - description: token
+        in: body
+        name: token
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.CheckTokenReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.CacheUserInfoBo'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 校验token并验证状态
+      tags:
+      - 认证（open）
+  /open/usercenter/api/v1/dept/children:
+    post:
+      consumes:
+      - application/json
+      description: 根据上级ID列表获取部门信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.DeptInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 根据上级ID列表获取部门信息列表
+      tags:
+      - 部门（OpenApi调用）
+  /open/usercenter/api/v1/dept/list:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门信息列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.DeptInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门信息列表
+      tags:
+      - 部门（OpenApi调用）
+  /open/usercenter/api/v1/dept/list-by-ids:
+    post:
+      consumes:
+      - application/json
+      description: 根据部门ID列表获取部门信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.DeptInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 根据部门ID列表获取部门信息列表
+      tags:
+      - 部门（OpenApi调用）
+  /open/usercenter/api/v1/dept/list-by-query-cond:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门信息列表,根据条件
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.DeptQueryReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.DeptInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门信息列表，根据条件
+      tags:
+      - 部门（OpenApi调用）
+  /open/usercenter/api/v1/dept/list-have-member:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门信息列表,包含成员
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.DeptMemberListResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门信息列表,包含成员
+      tags:
+      - 部门（OpenApi调用）
+  /open/usercenter/api/v1/member/by-dept:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门下成员信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.UserDeptBindResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门下成员信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/by-id:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID，获取组织成员信息
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/open_resp.OrgMemberBaseResp'
+        "400":
+          description: ""
+      summary: 获取组织成员信息
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/dept-list-by-user:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID，获取绑定部门信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.UserDeptBindResp'
+            type: array
+        "400":
+          description: ""
+      summary: 成员绑定的部门信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/dept-list-by-users:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID列表，获取绑定部门信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.UserDeptBindResp'
+            type: array
+        "400":
+          description: ""
+      summary: 成员绑定的部门信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/dept-role-list-by-users:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID列表，获取绑定部门和角色信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              $ref: '#/definitions/open_resp.UserBindDeptAndRoleResp'
+            type: object
+        "400":
+          description: ""
+      summary: 成员绑定的部门和角色信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/exclude-ids:
+    post:
+      consumes:
+      - application/json
+      description: 获取组织成员信息列表，排除指定成员ID以后
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/open_resp.OrgMemberBaseResp'
+        "400":
+          description: ""
+      summary: 获取组织成员信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/get-same-subordinate-users:
+    post:
+      consumes:
+      - application/json
+      description: 获取平级或者下级的成员ID列表 根据同一部门下的职级等级对比
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.SameSubordinateUsers'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: ""
+      summary: 获取平级或者下级的成员ID列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/list:
+    post:
+      consumes:
+      - application/json
+      description: 获取组织成员列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.OrgMemberBaseResp'
+            type: array
+        "400":
+          description: ""
+      summary: 组织成员信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/list-by-ids:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID列表，获取组织成员信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.OrgMemberBaseResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取组织成员信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/list-by-query-cond:
+    post:
+      consumes:
+      - application/json
+      description: 获取组织成员列表，根据条件
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.MemberQueryReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.OrgMemberBaseResp'
+            type: array
+        "400":
+          description: ""
+      summary: 组织成员信息列表，根据条件
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/role-list-by-user:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID，获取绑定角色信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.UserRoleBindResp'
+            type: array
+        "400":
+          description: ""
+      summary: 成员绑定的角色信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/role-list-by-users:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID列表，获取绑定角色信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.UserRoleBindResp'
+            type: array
+        "400":
+          description: ""
+      summary: 成员绑定的角色信息列表
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/same-superior-count:
+    post:
+      consumes:
+      - application/json
+      description: 获取平级或者上级的个数 根据同一部门下的职级等级对比
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.CompareUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      summary: 获取平级或者上级的个数
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/member/user-auth-base-info:
+    post:
+      consumes:
+      - application/json
+      description: 人员权限基本信息
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/open_req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/open_resp.OrgUserAuthBaseResp'
+        "400":
+          description: ""
+      summary: 人员权限基本信息
+      tags:
+      - 成员（OpenApi调用）
+  /open/usercenter/api/v1/role/list:
+    post:
+      consumes:
+      - application/json
+      description: 获取角色信息列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.RoleInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取角色信息列表
+      tags:
+      - 角色（OpenApi调用）
+  /open/usercenter/api/v1/role/list-by-ids:
+    post:
+      consumes:
+      - application/json
+      description: 根据角色ID列表获取角色信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/open_resp.RoleInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 根据角色ID列表获取角色信息列表
+      tags:
+      - 角色（OpenApi调用）
+  /usercenter/api/v1/adminGroup/create:
+    post:
+      consumes:
+      - application/json
+      description: 管理组新增接口
+      parameters:
+      - description: 入参
+        in: body
+        name: .+
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreateManageGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 管理组新增
+      tags:
+      - 管理员
+  /usercenter/api/v1/adminGroup/delete:
+    delete:
+      consumes:
+      - application/json
+      description: 管理组新增接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.DeleteManageGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 管理组删除
+      tags:
+      - 管理员
+  /usercenter/api/v1/adminGroup/detail:
+    get:
+      consumes:
+      - application/json
+      description: 管理详情接口
+      parameters:
+      - description: 管理组ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ManageGroupDetailResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 管理详情
+      tags:
+      - 管理员
+  /usercenter/api/v1/adminGroup/operationConfigs:
+    get:
+      consumes:
+      - application/json
+      description: 管理组权限项配置信息接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.GetOperationConfigResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 管理组权限项配置信息
+      tags:
+      - 管理员
+  /usercenter/api/v1/adminGroup/tree:
+    get:
+      consumes:
+      - application/json
+      description: 管理组树状接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ManageGroupTreeResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 管理组树状
+      tags:
+      - 管理员
+  /usercenter/api/v1/adminGroup/update:
+    put:
+      consumes:
+      - application/json
+      description: 管理组新增接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateManageGroup'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 管理组修改
+      tags:
+      - 管理员
+  /usercenter/api/v1/adminGroup/updateContents:
+    put:
+      consumes:
+      - application/json
+      description: 修改管理组包含内容接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateManageGroupContents'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改管理组包含内容
+      tags:
+      - 管理员
+  /usercenter/api/v1/contact/aggregation:
+    post:
+      consumes:
+      - application/json
+      description: 通讯录搜索
+      parameters:
+      - description: 请求结构体
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.AggregationReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.AggregationResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 通讯录组合搜索（用户、部门、角色）
+      tags:
+      - 选人控件
+  /usercenter/api/v1/contact/filter:
+    post:
+      consumes:
+      - application/json
+      description: 通讯录查询
+      parameters:
+      - description: 请求结构体
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ContactFilterReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ContactFilterResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 通讯录查询
+      tags:
+      - 选人控件
+  /usercenter/api/v1/contact/search:
+    post:
+      consumes:
+      - application/json
+      description: 通讯录搜索
+      parameters:
+      - description: 请求结构体
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ContactSearchReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ContactSearchResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 通讯录搜索
+      tags:
+      - 选人控件
+  /usercenter/api/v1/dept/change-dept-sort:
+    post:
+      consumes:
+      - application/json
+      description: 改变部门排序接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ChangeDeptSortReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 改变部门排序
+      tags:
+      - 部门
+  /usercenter/api/v1/dept/remove-users:
+    post:
+      consumes:
+      - application/json
+      description: 将多个用户移出某个部门接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.DeptRemoveUsersReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      tags:
+      - 用户
+  /usercenter/api/v1/org/close-api-key:
+    delete:
+      consumes:
+      - application/json
+      description: 关闭OpenApi，并删除apiKey
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 关闭OpenApi
+      tags:
+      - 组织
+  /usercenter/api/v1/org/generate-api-key:
+    post:
+      consumes:
+      - application/json
+      description: 开启OpenApi，并生成apiKey
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 开启OpenApi
+      tags:
+      - 组织
+  /usercenter/api/v1/org/reset-api-key:
+    post:
+      consumes:
+      - application/json
+      description: 重置ApiKey
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 重置ApiKey
+      tags:
+      - 组织
+  /usercenter/api/v1/org/switch-to-inner-member:
+    post:
+      consumes:
+      - application/json
+      description: 将外部协作人转为内部成员
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 将外部协作人转为内部成员
+      tags:
+      - 组织
+  /usercenter/api/v1/oss/getOssPostPolicy:
+    post:
+      consumes:
+      - application/json
+      description: 获取文件上传策略信息
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.GetOssPostPolicyReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.GetOssPostPolicyResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 获取文件上传策略信息
+      tags:
+      - OSS
+  /usercenter/api/v1/positions/create:
+    post:
+      consumes:
+      - application/json
+      description: 创建职级接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreatePositionReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 创建职级
+      tags:
+      - 职级
+  /usercenter/api/v1/positions/delete:
+    delete:
+      consumes:
+      - application/json
+      description: 修改职级状态接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改职级状态
+      tags:
+      - 职级
+  /usercenter/api/v1/positions/list:
+    post:
+      consumes:
+      - application/json
+      description: 职级列表查询接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.SearchPositionListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/resp.PositionInfoResp'
+            type: array
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 职级列表查询
+      tags:
+      - 职级
+  /usercenter/api/v1/positions/page:
+    post:
+      consumes:
+      - application/json
+      description: 职级分页列表查询接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.SearchPositionPageListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.PositionPageListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 职级分页列表查询
+      tags:
+      - 职级
+  /usercenter/api/v1/positions/update-info:
+    post:
+      consumes:
+      - application/json
+      description: 修改职级信息接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreatePositionReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改职级信息
+      tags:
+      - 职级
+  /usercenter/api/v1/positions/update-status:
+    post:
+      consumes:
+      - application/json
+      description: 修改职级状态接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdatePositionStatusReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改职级状态
+      tags:
+      - 职级
+  /usercenter/api/v1/records/export-login-records:
+    post:
+      consumes:
+      - application/json
+      description: 导出通讯录接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ExportLoginRecordListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ExportAddressListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 导出通讯录
+      tags:
+      - 成员
+  /usercenter/api/v1/records/login-records:
+    post:
+      consumes:
+      - application/json
+      description: 登陆日志接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.LoginRecordListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.LoginRecordListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 登陆日志
+      tags:
+      - 日志
+  /usercenter/api/v1/role/create:
+    post:
+      consumes:
+      - application/json
+      description: 创建角色接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreateRoleReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 创建角色
+      tags:
+      - 角色
+  /usercenter/api/v1/role/delete:
+    delete:
+      consumes:
+      - application/json
+      description: 删除角色接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 删除角色
+      tags:
+      - 角色
+  /usercenter/api/v1/role/filter:
+    post:
+      consumes:
+      - application/json
+      description: 角色查询
+      parameters:
+      - description: 请求结构体
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.RoleFilterReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.RoleFilterResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 角色查询
+      tags:
+      - 选人控件
+  /usercenter/api/v1/role/list:
+    get:
+      consumes:
+      - application/json
+      description: 角色组和角色列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.RoleListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 角色组和角色列表
+      tags:
+      - 角色
+  /usercenter/api/v1/role/move:
+    put:
+      consumes:
+      - application/json
+      description: 移动角色接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.MoveRoleReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 移动角色
+      tags:
+      - 角色
+  /usercenter/api/v1/role/update:
+    put:
+      consumes:
+      - application/json
+      description: 修改角色接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateRoleReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改角色
+      tags:
+      - 角色
+  /usercenter/api/v1/roleGroup/create:
+    post:
+      consumes:
+      - application/json
+      description: 创建角色组接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.RoleGroupReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 创建角色组
+      tags:
+      - 角色组
+  /usercenter/api/v1/roleGroup/delete:
+    delete:
+      consumes:
+      - application/json
+      description: 删除角色组接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 删除角色组
+      tags:
+      - 角色组
+  /usercenter/api/v1/roleGroup/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取组织角色组列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/resp.RoleGroup'
+            type: array
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 组织角色组列表
+      tags:
+      - 角色组
+  /usercenter/api/v1/roleGroup/update:
+    put:
+      consumes:
+      - application/json
+      description: 修改角色组接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateRoleGroupReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改角色组
+      tags:
+      - 角色组
+  /usercenter/api/v1/user/allocate-dept:
+    post:
+      consumes:
+      - application/json
+      description: 给用户分配部门
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.AllocateUserDeptReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 给用户分配部门
+      tags:
+      - 成员
+  /usercenter/api/v1/user/auth-sms-code:
+    post:
+      consumes:
+      - application/json
+      description: 校验手机短信验证码接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.AuthSmsCodeReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.AuthSmsCodeResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: '**校验**手机短信验证码'
+      tags:
+      - 验证码
+  /usercenter/api/v1/user/bindLoginName:
+    post:
+      consumes:
+      - application/json
+      description: 绑定邮箱/手机号接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.BindLoginNameReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 绑定邮箱/手机号
+      tags:
+      - 账号
+  /usercenter/api/v1/user/change-dept-and-position:
+    post:
+      consumes:
+      - application/json
+      description: 变更用户部门/职级接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ChangeUserDeptAndPositionReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 变更用户部门/职级
+      tags:
+      - 部门
+  /usercenter/api/v1/user/change-user-admin-group:
+    post:
+      consumes:
+      - application/json
+      description: 切换用户管理组接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ChangeUserAdminGroupReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 切换用户管理组
+      tags:
+      - 管理员
+  /usercenter/api/v1/user/check-authenticate-name-exist:
+    post:
+      consumes:
+      - application/json
+      description: 校验账号是否存在
+      parameters:
+      - description: 用户名是否存在：true 存在，false 不存在
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CheckLoginNameExistReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 校验账号是否存在
+      tags:
+      - 账号
+  /usercenter/api/v1/user/create:
+    post:
+      consumes:
+      - application/json
+      description: 新建成员接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreateOrgMemberReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 新建成员
+      tags:
+      - 成员
+  /usercenter/api/v1/user/createDepartment:
+    post:
+      consumes:
+      - application/json
+      description: 创建部门接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreateDepartmentReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 创建部门
+      tags:
+      - 部门
+  /usercenter/api/v1/user/createOrg:
+    post:
+      consumes:
+      - application/json
+      description: 创建组织接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.CreateOrgReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.CreateOrgRespVoData'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 创建按组织
+      tags:
+      - 组织
+  /usercenter/api/v1/user/deleteDepartment:
+    post:
+      consumes:
+      - application/json
+      description: 删除部门接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.DeleteDepartmentReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 删除部门
+      tags:
+      - 部门
+  /usercenter/api/v1/user/departmentList:
+    post:
+      consumes:
+      - application/json
+      description: 部门列表接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.DepartmentListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.DepartmentList'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 部门列表
+      tags:
+      - 部门
+  /usercenter/api/v1/user/exportAddressList:
+    post:
+      consumes:
+      - application/json
+      description: 导出通讯录接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.ExportAddressListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ExportAddressListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 导出通讯录
+      tags:
+      - 成员
+  /usercenter/api/v1/user/get-user-manage-auth:
+    get:
+      consumes:
+      - application/json
+      description: 成员管理组权限
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.UserManageAuthResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 成员管理组权限
+      tags:
+      - 成员权限
+  /usercenter/api/v1/user/getInviteCode:
+    get:
+      consumes:
+      - application/json
+      description: 获取邀请码接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.GetInviteCodeResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 获取邀请码
+      tags:
+      - 成员邀请
+  /usercenter/api/v1/user/getInviteInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取邀请信息接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.GetInviteInfoReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ParseBody
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 获取邀请信息
+      tags:
+      - 成员邀请
+  /usercenter/api/v1/user/getOrgConfig:
+    get:
+      consumes:
+      - application/json
+      description: 获取组织设置接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.OrgConfig'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 获取组织设置
+      tags:
+      - 组织
+  /usercenter/api/v1/user/industryList:
+    get:
+      consumes:
+      - application/json
+      description: 行业列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.IndustryListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 行业列表
+      tags:
+      - 行业列表
+  /usercenter/api/v1/user/inviteUser:
+    post:
+      consumes:
+      - application/json
+      description: 邀请成员(再次邀请)接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.InviteUserReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.InviteUserResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 邀请成员/再次邀请
+      tags:
+      - 成员邀请
+  /usercenter/api/v1/user/inviteUserList:
+    post:
+      consumes:
+      - application/json
+      description: 未接受邀请成员列表接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.InviteUserListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.InviteUserListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 未接受邀请成员列表
+      tags:
+      - 成员邀请
+  /usercenter/api/v1/user/login:
+    post:
+      consumes:
+      - application/json
+      description: 登录接口
+      parameters:
+      - description: 登录信息
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UserLoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.UserLoginResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 登录
+      tags:
+      - 认证
+  /usercenter/api/v1/user/member-info:
+    post:
+      consumes:
+      - application/json
+      description: 根据ID获取成员详情接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.IdReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.OrgMemberInfoReq'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 根据ID获取成员详情
+      tags:
+      - 成员
+  /usercenter/api/v1/user/personalInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取当前成员信息接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.PersonalInfo'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 获取当前成员信息
+      tags:
+      - 成员
+  /usercenter/api/v1/user/quit:
+    post:
+      consumes:
+      - application/json
+      description: 退出登录接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UserQuitReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 退出登录
+      tags:
+      - 认证
+  /usercenter/api/v1/user/register:
+    post:
+      consumes:
+      - application/json
+      description: 注册接口
+      parameters:
+      - description: 注册信息
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UserRegisterReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 注册
+      tags:
+      - 账号
+  /usercenter/api/v1/user/removeInviteUser:
+    post:
+      consumes:
+      - application/json
+      description: 删除成员邀请列表接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.RemoveInviteUserReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 删除成员邀请列表
+      tags:
+      - 成员邀请
+  /usercenter/api/v1/user/removeUser:
+    post:
+      consumes:
+      - application/json
+      description: 移除成员接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.RemoveOrgMemberReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 移除成员
+      tags:
+      - 成员
+  /usercenter/api/v1/user/reset-password:
+    post:
+      consumes:
+      - application/json
+      description: 重置密码接口
+      parameters:
+      - description: 密码
+        in: body
+        name: password
+        required: true
+        schema:
+          $ref: '#/definitions/req.SetPasswordReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 重置密码
+      tags:
+      - 账号
+  /usercenter/api/v1/user/retrievePassword:
+    post:
+      consumes:
+      - application/json
+      description: 找回密码接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.RetrievePasswordReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 找回密码
+      tags:
+      - 账号
+  /usercenter/api/v1/user/searchUser:
+    post:
+      consumes:
+      - application/json
+      description: 邀请时搜索成员接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.SearchUserReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.SearchUserResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 邀请时搜索成员
+      tags:
+      - 成员邀请
+  /usercenter/api/v1/user/sendAuthCode:
+    post:
+      consumes:
+      - application/json
+      description: 发送各种验证码(目前支持手机号以及邮箱)接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.SendAuthCodeReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 发送各种验证码(目前支持手机号以及邮箱)
+      tags:
+      - 验证码
+  /usercenter/api/v1/user/setPassword:
+    post:
+      consumes:
+      - application/json
+      description: 设置本人密码接口
+      parameters:
+      - description: 密码
+        in: body
+        name: password
+        required: true
+        schema:
+          $ref: '#/definitions/req.PasswordReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 设置本人密码
+      tags:
+      - 账号
+  /usercenter/api/v1/user/setUserDepartmentLevel:
+    post:
+      consumes:
+      - application/json
+      description: 设置部门负责人接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateDeptLeaderReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 设置部门负责人
+      tags:
+      - 部门
+  /usercenter/api/v1/user/switchUserOrganization:
+    post:
+      consumes:
+      - application/json
+      description: 登录的用户进行组织切换
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/vo.SwitchUserOrganizationReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 组织切换
+      tags:
+      - 用户
+  /usercenter/api/v1/user/unbindLoginName:
+    post:
+      consumes:
+      - application/json
+      description: 解绑登录名，如解绑手机号、邮箱等
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UnbindLoginNameReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.UnbindLoginNameResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 解绑登录名
+      tags:
+      - 账号
+  /usercenter/api/v1/user/update:
+    post:
+      consumes:
+      - application/json
+      description: 更新成员接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateOrgMemberReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 更新成员
+      tags:
+      - 成员
+  /usercenter/api/v1/user/update-password:
+    post:
+      consumes:
+      - application/json
+      description: 修改本人密码接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.OldNewPasswordReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 修改本人密码
+      tags:
+      - 账号
+  /usercenter/api/v1/user/update-password-by-username:
+    post:
+      consumes:
+      - application/json
+      description: 密码过期修改密码，进入该接口的必定是设置过密码的
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdatePasswordByLoginNameReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      summary: 密码过期修改密码(无需认证)
+      tags:
+      - 账号
+  /usercenter/api/v1/user/updateDepartment:
+    post:
+      consumes:
+      - application/json
+      description: 更新部门接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateDepartmentReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 更新部门
+      tags:
+      - 部门
+  /usercenter/api/v1/user/updatePersonalInfo:
+    post:
+      consumes:
+      - application/json
+      description: 更新当前成员信息接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateUserInfoReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 更新当前成员信息
+      tags:
+      - 成员
+  /usercenter/api/v1/user/updateUserStatus:
+    post:
+      consumes:
+      - application/json
+      description: 启用/禁用成员接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateOrgMemberStatusReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 启用/禁用成员
+      tags:
+      - 成员
+  /usercenter/api/v1/user/userList:
+    post:
+      consumes:
+      - application/json
+      description: 成员列表接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UserListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.UserListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 成员列表
+      tags:
+      - 成员
+  /usercenter/api/v1/user/userOrgList:
+    post:
+      consumes:
+      - application/json
+      description: 用户组织列表接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.UserOrganizationListResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 用户组织列表
+      tags:
+      - 用户
+  /usercenter/api/v1/user/userStat:
+    post:
+      consumes:
+      - application/json
+      description: 成员tab统计接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.UserStatResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 成员tab统计
+      tags:
+      - 成员
+  /usercenter/api/v1/user/verifyOldName:
+    post:
+      consumes:
+      - application/json
+      description: 验证原邮箱/手机号接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UnbindLoginNameReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 验证原邮箱/手机号
+      tags:
+      - 账号
+  /usercenter/api/v1/userRole/assignRoles:
+    post:
+      consumes:
+      - application/json
+      description: 分配角色接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.AssignRoleRqe'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 用户分配角色
+      tags:
+      - 角色
+  /usercenter/api/v1/userRole/create:
+    post:
+      consumes:
+      - application/json
+      description: 修改角色组接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateRoleUserRefRqe'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 角色添加用户
+      tags:
+      - 角色
+  /usercenter/api/v1/userRole/delete:
+    delete:
+      consumes:
+      - application/json
+      description: 删除角色组接口
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateRoleUserRefRqe'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 角色删除用户
+      tags:
+      - 角色
+  /usercenter/inner/api/v1/adminGroup/detail:
+    get:
+      consumes:
+      - application/json
+      description: 管理组详情接口，内部调用！
+      parameters:
+      - description: 管理组ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ManageGroupDetailResp'
+        "400":
+          description: ""
+      summary: 管理组详情
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/adminGroup/tree:
+    post:
+      consumes:
+      - application/json
+      description: 管理组树状接口，内部调用
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.ManageGroupTreeResp'
+        "400":
+          description: ""
+      summary: 管理组树状
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/adminGroup/updateContents:
+    put:
+      consumes:
+      - application/json
+      description: 修改管理组包含内容接口，内部调用
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/req.UpdateManageGroupContents'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      summary: 修改管理组包含内容
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/auth/api-key-auth:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 校验ApiKey接口
+      parameters:
+      - description: apiKey
+        in: query
+        name: apiKey
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.CacheUserInfoBo'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 校验ApiKey
+      tags:
+      - 组织
+  /usercenter/inner/api/v1/dept/getAllListByIds:
+    post:
+      consumes:
+      - application/json
+      description: 根据部门ID列表获取部门信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.DeptListByIdsInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.DeptInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取所有部门信息列表
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getLeadersByDeptIds:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门下的所有leader
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetLeadersByDeptIdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/inner_resp.GetLeadersByDeptIdsResp'
+        "400":
+          description: ""
+      summary: 获取部门下的所有leader
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getListByIds:
+    post:
+      consumes:
+      - application/json
+      description: 根据部门ID列表获取部门信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.DeptListByIdsInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.DeptInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门信息列表（可用）
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getUserCountByDeptIds:
+    post:
+      consumes:
+      - application/json
+      description: 统计部门下的人数
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetUserCountByDeptIdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetUserCountByDeptIdsResp'
+            type: array
+        "400":
+          description: ""
+      summary: 统计部门下的人数
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getUserDeptIds:
+    post:
+      consumes:
+      - application/json
+      description: 获取人员所在的部门id集合
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetUserDeptIdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetUserDeptIdsResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取人员所在的部门id集合
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getUserDeptIdsBatch:
+    post:
+      consumes:
+      - application/json
+      description: 获取人员所在的部门id集合（批量）
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetUserDeptIdsBatchReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/inner_resp.GetUserDeptIdsBatchResp'
+        "400":
+          description: ""
+      summary: 获取人员所在的部门id集合（批量）
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getUserIds:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门用户（部门对应用户数组）
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetDeptUserIdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetDeptUserIdsResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门用户（部门对应用户数组）
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/dept/getUserIdsByDeptIds:
+    post:
+      consumes:
+      - application/json
+      description: 获取部门下的所有人员id
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetUserIdsByDeptIdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetUserIdsByDeptIdsResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取部门下的所有人员id
+      tags:
+      - 部门（内部调用）
+  /usercenter/inner/api/v1/manage-group/add-app:
+    post:
+      consumes:
+      - application/json
+      description: 新增应用至改人员所在管理组
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.AddAppReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.DeptInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 新增应用至人员所在管理组
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/manage-group/add-pkg:
+    post:
+      consumes:
+      - application/json
+      description: 新增应用包至人员所在管理组
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.AddPkgReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.DeptInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 新增应用包至人员所在管理组
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/manage-group/add-user-to-sys-manage-group:
+    post:
+      consumes:
+      - application/json
+      description: 增加人员到系统管理组，内部调用！
+      parameters:
+      - description: 组织id
+        in: query
+        name: orgId
+        required: true
+        type: integer
+      - description: 用户id
+        in: query
+        name: userId
+        required: true
+        type: integer
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.AddUserToSysManageGroupReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "400":
+          description: ""
+      summary: 增加人员到系统管理组
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/manage-group/delete-app:
+    post:
+      consumes:
+      - application/json
+      description: 从人员所在管理组删除应用
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.DeleteAppReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.DeptInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 从人员所在管理组删除应用
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/manage-group/delete-pkg:
+    post:
+      consumes:
+      - application/json
+      description: 从人员所在管理组删除应用包
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.DeletePkgReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.DeptInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 从人员所在管理组删除应用包
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/manage-group/getManageInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取管理组管理的应用集合
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetManagerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetManagerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取管理组管理的应用集合
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/manage-group/init:
+    post:
+      consumes:
+      - application/json
+      description: 初始化管理组，内部调用！
+      parameters:
+      - description: 组织id
+        in: query
+        name: orgId
+        required: true
+        type: integer
+      - description: 用户id
+        in: query
+        name: userId
+        required: true
+        type: integer
+      - description: 应用来源。默认可以不传，如果是极星，则传 `polaris`。
+        in: query
+        name: sourceFrom
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/inner_resp.ManagerGroupInitResp'
+        "400":
+          description: ""
+      summary: 初始化管理组
+      tags:
+      - 管理组（内部调用）
+  /usercenter/inner/api/v1/org/add-out-collaborator:
+    post:
+      consumes:
+      - application/json
+      description: 新增外部协作人
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.AddOrgOutCollaborator'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/bo.BaseOrgInfoBo'
+        "400":
+          description: ""
+      summary: 新增外部协作人
+      tags:
+      - 企业（内部调用）
+  /usercenter/inner/api/v1/org/info:
+    get:
+      consumes:
+      - application/json
+      description: 获取企业基础信息
+      parameters:
+      - description: 组织id
+        in: query
+        name: orgId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/bo.BaseOrgInfoBo'
+        "400":
+          description: ""
+      summary: 获取企业基础信息
+      tags:
+      - 企业（内部调用）
+  /usercenter/inner/api/v1/role/getAllListByIds:
+    post:
+      consumes:
+      - application/json
+      description: 根据角色ID列表获取角色信息列表（不分状态和是否删除）
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.RoleListByIdsInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.RoleInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取角色信息列表 （不分状态和是否删除）
+      tags:
+      - 角色（内部调用）
+  /usercenter/inner/api/v1/role/getListByIds:
+    post:
+      consumes:
+      - application/json
+      description: 根据角色ID列表获取角色信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.RoleListByIdsInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.RoleInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取角色信息列表
+      tags:
+      - 角色（内部调用）
+  /usercenter/inner/api/v1/role/getUserIds:
+    post:
+      consumes:
+      - application/json
+      description: 获取角色用户（角色对应用户数组）
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetRoleUserIdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetRoleUserIdsResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取角色用户（角色对应用户数组）
+      tags:
+      - 角色（内部调用）
+  /usercenter/inner/api/v1/user/auth:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 校验token接口
+      parameters:
+      - description: token
+        in: query
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.CacheUserInfoBo'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 校验token
+      tags:
+      - 认证
+  /usercenter/inner/api/v1/user/auth-check-status:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 校验token并验证状态接口
+      parameters:
+      - description: token
+        in: query
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/resp.CacheUserInfoBo'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 校验token并验证状态
+      tags:
+      - 认证
+  /usercenter/inner/api/v1/user/get-users-could-manage:
+    get:
+      consumes:
+      - application/json
+      description: 成员管理组权限
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/inner_resp.GetUsersCouldManageResp'
+        "400":
+          description: ""
+      security:
+      - token: []
+      summary: 获取有权限管理项目的用户列表
+      tags:
+      - 成员（内部调用）
+  /usercenter/inner/api/v1/user/getAllListByIds:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID列表获取成员信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.UserListByIdsInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.UserInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取所有成员信息列表
+      tags:
+      - 成员（内部调用）
+  /usercenter/inner/api/v1/user/getListByIds:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID列表获取成员信息列表
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.UserListByIdsInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.UserInfoInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取成员信息列表（只获取有效的）
+      tags:
+      - 成员（内部调用）
+  /usercenter/inner/api/v1/user/getMemberSimpleInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取成员简单信息
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.GetMemberSimpleInfoReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.GetMemberSimpleInfoResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取成员简单信息
+      tags:
+      - 成员（内部调用）
+  /usercenter/inner/api/v1/user/getRepeatMember:
+    post:
+      consumes:
+      - application/json
+      description: 获取重名成员/部门/角色
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.SimpleReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.RepeatMemberResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取重名成员/部门/角色
+      tags:
+      - 成员（内部调用）
+  /usercenter/inner/api/v1/user/getUserAuthority:
+    post:
+      consumes:
+      - application/json
+      description: 根据成员ID获取成员权限信息
+      parameters:
+      - description: 入参
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/inner_req.UserAuthorityInnerReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/inner_resp.UserAuthorityInnerResp'
+            type: array
+        "400":
+          description: ""
+      summary: 获取成员权限信息
+      tags:
+      - 成员（内部调用）
+swagger: "2.0"

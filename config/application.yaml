@@ -1,0 +1,115 @@
+server:
+  # 程序启动端口
+  Port: 15001
+
+# 应用配置
+application:
+  # 应用名
+  name: usercenter
+  # 前端应用地址
+  domain:
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  pwd: root
+  database: lesscode-prod
+  maxOpenConns: 15
+  maxIdleConns: 15
+
+redis:
+  host: 192.168.88.164
+  port: 26379
+  pwd: sau2Al!tn12
+  database: 11
+  maxIdle: 20
+  maxActive: 20
+  maxIdleTimeout: 3600
+
+snowflake:
+  workerId: 1
+
+# MQTT
+mqtt:
+  address:
+  # 重复配置是因为要返给前端
+  host:
+  port: 443
+  secretKey:
+  enable: true
+  connectPoolSize: 20
+
+sentry:
+  dsn: http://127.0.0.1/25
+
+
+nacos:
+  client:
+    namespace_id: "public" #nacos命名空间
+    timeout_ms: 10000 #http请求超时时间，单位毫秒
+    listen_interval: 30000 #监听间隔时间，单位毫秒（仅在ConfigClient中有效）
+    beat_interval: 5000 #心跳间隔时间，单位毫秒（仅在ServiceClient中有效）
+    endpoint: "" #获取nacos节点ip的服务地址
+    cacheDir: "cache" #缓存目录
+    logDir: "logs" #日志目录
+    update_thread_num: 20 #更新服务的线程数
+    not_load_cache_at_start: true #在启动时不读取本地缓存数据，true--不读取，false--读取
+    update_cache_when_empty: true #当服务列表为空时是否更新本地缓存，true--更新,false--不更新
+    username:
+    password:
+
+  server:
+    server1:
+      ip_addr: "192.168.88.222" #nacos服务的ip地址
+      port: 8848 #nacos服务端口
+      context_path: "/nacos" #nacos服务的上下文路径，默认是“/nacos”
+
+discovery:
+  group_name: "DEFAULT_GROUP"
+  cluster_name: "DEFAULT"
+  weight: 10
+  enable: true
+  healthy: true
+  ephemeral: true
+
+logger:
+  level: info
+  outputs:
+    - stdout
+    - info.log
+  errOutputs:
+    - stderr
+    - error.log
+
+#oss:
+#  rootPath: /data/resources
+#  localDomain: http://127.0.0.1:15001
+resource:
+  root_path: /data/resources
+  local_domain: http://127.0.0.1:15001
+
+# 阿里云OSS配置，暂时先只通过 dir 与极星的对象存储区分开
+OSS:
+  BucketName:
+  EndPoint:
+  AccessKeyId:
+  AccessKeySecret:
+  Policies:
+    UserAvatar:
+      BucketName:
+      Expire: 300000
+      Dir: lesscode/user_avatar/org_{{.orgId}}/folder_resource/{{.year}}/{{.month}}/{{.day}}
+      MaxFileSize: 10485760
+    MixResource:
+      BucketName:
+      Expire: 300000
+      Dir: lesscode/mix_resource/org_{{.orgId}}/folder_{{.folderName}}/{{.year}}/{{.month}}/{{.day}}
+      MaxFileSize: 10485760
+
+private:
+  enable: true
+  config:
+    user-ext-table: lc_org_user_ext_{{.orgCode}}
+    columns:
+      configPath:
